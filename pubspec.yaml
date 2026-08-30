@@ -1,0 +1,33 @@
+name: lane_switch_system
+description: Real-time lane-change / overtake advisory app (Pakistan traffic default) — ported from the Python Lane Switch System.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Official Ultralytics YOLO plugin — handles camera + on-device YOLO
+  # inference (Android: TFLite, iOS: CoreML) with a ready-made camera view.
+  ultralytics_yolo: ^0.6.14
+  # Text-to-speech so the driver/child doesn't have to look at the screen.
+  flutter_tts: ^4.0.2
+  permission_handler: 11.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1 
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/app_icon.png
+   
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_icon.png"
