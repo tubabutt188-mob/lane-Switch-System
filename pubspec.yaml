@@ -15,7 +15,7 @@ dependencies:
   # Text-to-speech so the driver/child doesn't have to look at the screen.
   flutter_tts: ^4.0.2
   permission_handler: 11.3.1
-
+  geolocator: ^13.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -26,6 +26,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/app_icon.png
+    - assets/model/yolo26n.tflite
    
 flutter_launcher_icons:
   android: true

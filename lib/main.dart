@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'camera_screen.dart';
+import 'home_screen.dart';
 
 void main() {
   runApp(const LaneSwitchApp());
@@ -14,7 +14,7 @@ class LaneSwitchApp extends StatelessWidget {
       title: 'Lane Switch System',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true),
-      home: const CameraScreen(),
+      home: const HomeScreen(),
     );
   }
 }

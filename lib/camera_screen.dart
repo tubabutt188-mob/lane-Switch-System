@@ -26,8 +26,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
   // --- Runtime config (surface these as Settings UI later if you want) ---
   final CameraMode _cameraMode = CameraMode.rear; // REAR = "CHANGE LANE NOW"
-  double _egoSpeedKmh =
-      100; // TODO: wire up to GPS/speedometer instead of a fixed value
+  final double _egoSpeedKmh = 100;
 
   LaneStatus _status = LaneStatus.clear;
   double? _distanceM;
@@ -62,7 +61,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
   void _onDetections(List<Detection> detections) {
     // boundaryX in the SAME normalized (0..1) space as Detection.x/width.
-    final boundaryX = adjacentLaneSide == LaneSide.right
+    const double boundaryX = adjacentLaneSide == LaneSide.right
         ? 1 - adjacentLaneFraction
         : adjacentLaneFraction;
 
@@ -102,25 +101,25 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   Widget build(BuildContext context) {
     if (_permissionDenied) {
-      return Scaffold(
+      return const Scaffold(
         backgroundColor: Colors.black,
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.all(24),
+            padding: EdgeInsets.all(24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(Icons.videocam_off, color: Colors.white54, size: 48),
-                const SizedBox(height: 16),
-                const Text(
+                Icon(Icons.videocam_off, color: Colors.white54, size: 48),
+                SizedBox(height: 16),
+                Text(
                   'Camera permission is required for this app to work.',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: openAppSettings,
-                  child: const Text('Open Settings'),
+                  child: Text('Open Settings'),
                 ),
               ],
             ),
@@ -149,7 +148,7 @@ class _CameraScreenState extends State<CameraScreen> {
           // point modelPath at your own exported yolo11n.tflite placed in
           // assets/models/ (see pubspec.yaml + README for export steps).
           YOLOView(
-            modelPath: 'yolo26n',
+            modelPath: 'assets/model/yolo26n.tflite',
             task: YOLOTask.detect,
             onResult: (results) {
               final detections = results.map((r) {

@@ -130,7 +130,7 @@ void main() {
   test(
       'isAdjacentLaneClearRaw: RIGHT side (Pakistan) — car on the right '
       'blocks the adjacent lane', () {
-    final boundaryX = 1 - adjacentLaneFraction; // ~0.65
+    const double boundaryX = 1 - adjacentLaneFraction; // ~0.65
     final carOnRight = Detection(
       className: 'car',
       confidence: 0.9,
@@ -148,7 +148,7 @@ void main() {
   test(
       'isAdjacentLaneClearRaw: RIGHT side — car on the left does NOT '
       'block the (right) adjacent lane', () {
-    final boundaryX = 1 - adjacentLaneFraction;
+    const double boundaryX = 1 - adjacentLaneFraction;
     final carOnLeft = Detection(
       className: 'car',
       confidence: 0.9,
